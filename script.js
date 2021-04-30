@@ -34,16 +34,25 @@ function writePassword() {
     }
     console.log(res);
 
-    for (i = 0; i < passLength; i++) {
-      passWord += res.charAt(Math.floor(Math.random() * res.length));
+    if (res === "") {
+      alert("Missing Composition Parameter for Password Generation. Please Try Again");
+      writePassword();
     }
+    else {
+      for (i = 0; i < passLength; i++) {
+        passWord += res.charAt(Math.floor(Math.random() * res.length));
+      }
 
-    console.log(passWord);
-    document.getElementById("password").innerHTML = passWord;
-    res = "";
-    passWord = "";
+      console.log(passWord);
+      document.getElementById("password").innerHTML = passWord;
+      res = "";
+      passWord = "";
+    }
   }
- else{ alert("Please Try Again");}
+  else {
+     alert("Please select a length between 8 and 128");
+     writePassword(); 
+}
 }
 
 // Add event listener to generate button
