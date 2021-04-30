@@ -10,7 +10,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var passLength = prompt("How long is the password?");
+  var passLength = prompt("How long is the password? (Length: 8 to 128)");
 
   if (passLength >= 8 && passLength <= 128) {
     var lowerCase = prompt("Include lowercase? (Y/N)");
@@ -43,6 +43,7 @@ function writePassword() {
     res = "";
     passWord = "";
   }
+ else{ alert("Please Try Again");}
 }
 
 // Add event listener to generate button
