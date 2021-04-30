@@ -1,6 +1,8 @@
 var res ="";
 var lowerCaseString = "abcdefghijklmnopqrstuvwxyz";
 var upperCaseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numericString = "0123456789";
+var specialString = " !#$%&()*+,-./:;<=>?@[]^_`{|}~";
 
 // Assignment code here
 function randomNumber(){
@@ -13,24 +15,27 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var passLength = prompt("How long is the password?");
+
   var lowerCase = prompt("Include lowercase? (Y/N)");
   if (lowerCase === "Y" || lowerCase === "y" || lowerCase === "YES"){
   res = res.concat(lowerCaseString);
   }
+
   var upperCase = prompt("Include uppercase (Y/N)");
-  var numericCharacters = prompt("Include numeric characters? (Y/N)");
-  var specialCharacters = prompt("Include special characters? (Y/N)");
-
-
-  for (i=0;i <= passLength-1; i++){
-    
+  if (upperCase === "Y" || upperCase === "y" || upperCase === "YES"){
+    res = res.concat(upperCaseString);
   }
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var numericCharacters = prompt("Include numeric characters? (Y/N)");
+  if (numericCharacters === "Y" || numericCharacters === "y" || numericCharacters === "YES"){
+    res = res.concat(numericString);
+  }
 
-  passwordText.value = password;
-
+  var specialCharacters = prompt("Include special characters? (Y/N)");
+  if (specialCharacters === "Y" || specialCharacters === "y" || specialCharacters === "YES"){
+    res = res.concat(specialString);
+  }
+  console.log(res);
 }
 
 // Add event listener to generate button
